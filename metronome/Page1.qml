@@ -1,16 +1,18 @@
 import QtQuick 2.7
+import QtMultimedia 5.8
 
 Page1Form {
 
     Timer {
         id: mainTimer
-        interval: 1000
+        interval: 300
         triggeredOnStart: true
         running: true
         repeat: true
 
         onTriggered: {
             statusIndicator.active = true
+            cowbell.play()
             blinkingTimer.start()
         }
     }
@@ -26,5 +28,10 @@ Page1Form {
             statusIndicator.active = false
             blinkingTimer.stop()
         }
+    }
+
+    SoundEffect{
+        id: cowbell
+        source: "qrc:/sound/sounds/Yamaha-RX15-Cowbell.wav"
     }
 }
