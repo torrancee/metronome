@@ -5,7 +5,7 @@ import QtQuick.Layouts 1.3
 ApplicationWindow {
     visible: true
     width: 300
-    height: 480
+    height: 400
     title: qsTr("Metronome")
 
     Page1{

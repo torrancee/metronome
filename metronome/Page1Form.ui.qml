@@ -5,13 +5,8 @@ import QtQuick.Extras 1.4
 
 Item {
     width: 300
-
-    ToggleButton {
-        id: toggleButton
-        x: 94
-        y: 44
-        text: qsTr("Button")
-    }
+    height: 400
+    property alias statusIndicator: statusIndicator
 
     SpinBox {
         id: spinBox
@@ -31,5 +26,13 @@ Item {
         x: 120
         y: 275
         text: qsTr("Button")
+    }
+
+    StatusIndicator {
+        id: statusIndicator
+        x: 68
+        y: 48
+        width: 164
+        height: 105
     }
 }
