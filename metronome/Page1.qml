@@ -3,6 +3,13 @@ import QtMultimedia 5.8
 
 Page1Form {
 
+    currentTempo.readOnly: true
+
+    dial.onValueChanged: {
+
+        currentTempo.text = dial.value
+    }
+
     start.onClicked: {
 
         mainTimer.start()
@@ -15,7 +22,7 @@ Page1Form {
 
     Timer {
         id: mainTimer
-        interval: 300
+        interval: 1000
         triggeredOnStart: true
         running: false
         repeat: true

@@ -6,7 +6,8 @@ import QtQuick.Extras 1.4
 Item {
     id: item1
     width: 300
-    height: 400
+    height: 450
+    property alias currentTempo: currentTempo
     property alias stop: stop
     property alias start: start
     property alias dial: dial
@@ -15,15 +16,15 @@ Item {
 
     Button {
         id: start
-        x: 120
-        y: 307
+        x: 118
+        y: 308
         text: qsTr("START")
     }
 
     Button {
         id: stop
-        x: 120
-        y: 350
+        x: 118
+        y: 346
         width: 64
         height: 32
         text: qsTr("STOP")
@@ -49,6 +50,10 @@ Item {
             x: 0
             width: 300
             height: 116
+            minimumValue: 40
+            maximumValue: 240
+            value: 60
+            stepSize: 1
         }
 
         Slider {
@@ -58,5 +63,15 @@ Item {
             width: 300
             value: 0.5
         }
+    }
+
+    TextField {
+        id: currentTempo
+        x: 118
+        y: 389
+        width: 64
+        height: 29
+        text: qsTr("120")
+        horizontalAlignment: Text.AlignHCenter
     }
 }
