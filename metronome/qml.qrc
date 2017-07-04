@@ -6,6 +6,6 @@
         <file>qtquickcontrols2.conf</file>
     </qresource>
     <qresource prefix="/sound">
-        <file>sounds/Yamaha-RX15-Cowbell.wav</file>
+        <file>sounds/cowbell.wav</file>
     </qresource>
 </RCC>

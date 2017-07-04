@@ -32,6 +32,6 @@ Page1Form {
 
     SoundEffect{
         id: cowbell
-        source: "qrc:/sound/sounds/Yamaha-RX15-Cowbell.wav"
+        source: "qrc:/sound/sounds/cowbell.wav"
     }
 }
