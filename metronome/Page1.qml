@@ -3,11 +3,25 @@ import QtMultimedia 5.8
 
 Page1Form {
 
+    slider.onValueChanged: {
+
+        if(slider.value < 100)
+            currentTempo.text = slider.value.toPrecision(2)
+        else
+            currentTempo.text = slider.value.toPrecision(3)
+
+        dial.value = slider.value.toPrecision(3)
+        mainTimer.interval = 60/dial.value*1000
+
+    }
+
     currentTempo.readOnly: true
 
     dial.onValueChanged: {
 
         currentTempo.text = dial.value
+        slider.value = dial.value
+        mainTimer.interval = 60/dial.value*1000
     }
 
     start.onClicked: {

@@ -7,6 +7,7 @@ Item {
     id: item1
     width: 300
     height: 450
+    property alias slider: slider
     property alias currentTempo: currentTempo
     property alias stop: stop
     property alias start: start
@@ -35,15 +36,16 @@ Item {
         x: 68
         y: 22
         width: 164
-        height: 105
+        height: 80
     }
 
     SwipeView {
         id: swipeView
         x: 0
-        y: 162
+        y: 150
         width: 300
         height: 116
+        currentIndex: tabBar.currentIndex
 
         Dial {
             id: dial
@@ -52,16 +54,24 @@ Item {
             height: 116
             minimumValue: 40
             maximumValue: 240
-            value: 60
+            value: 120
             stepSize: 1
         }
 
         Slider {
             id: slider
             x: 300
-            y: 36
+            y: 0
             width: 300
-            value: 0.5
+            height: 116
+            stepSize: 1
+            font.capitalization: Font.AllLowercase
+            font.family: "Arial"
+            padding: 5
+            font.weight: Font.DemiBold
+            from: 40
+            to: 240
+            value: 120
         }
     }
 
@@ -74,4 +84,25 @@ Item {
         text: qsTr("120")
         horizontalAlignment: Text.AlignHCenter
     }
+
+    TabBar {
+        id: tabBar
+        y: 127
+        height: 17
+        font.pointSize: 10
+        anchors.rightMargin: 0
+        anchors.bottomMargin: 6
+        anchors.leftMargin: 0
+        TabButton {
+            text: "DIAL"
+        }
+
+        TabButton {
+            text: "SLIDER"
+        }
+        anchors.bottom: swipeView.top
+        anchors.left: swipeView.left
+        anchors.right: swipeView.right
+    }
+
 }
