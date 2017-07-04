@@ -7,22 +7,26 @@ Item {
     id: item1
     width: 300
     height: 400
+    property alias stop: stop
+    property alias start: start
     property alias dial: dial
     property alias swipeView: swipeView
     property alias statusIndicator: statusIndicator
 
     Button {
-        id: button
+        id: start
         x: 120
         y: 307
-        text: qsTr("Button")
+        text: qsTr("START")
     }
 
     Button {
-        id: button1
+        id: stop
         x: 120
         y: 350
-        text: qsTr("Button")
+        width: 64
+        height: 32
+        text: qsTr("STOP")
     }
 
     StatusIndicator {

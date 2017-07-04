@@ -3,11 +3,21 @@ import QtMultimedia 5.8
 
 Page1Form {
 
+    start.onClicked: {
+
+        mainTimer.start()
+    }
+
+    stop.onClicked: {
+
+        mainTimer.stop()
+    }
+
     Timer {
         id: mainTimer
         interval: 300
         triggeredOnStart: true
-        running: true
+        running: false
         repeat: true
 
         onTriggered: {
