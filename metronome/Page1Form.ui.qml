@@ -17,15 +17,15 @@ Item {
 
     Button {
         id: start
-        x: 118
-        y: 308
+        x: 190
+        y: 285
         text: qsTr("START")
     }
 
     Button {
         id: stop
-        x: 118
-        y: 346
+        x: 190
+        y: 327
         width: 64
         height: 32
         text: qsTr("STOP")
@@ -77,8 +77,8 @@ Item {
 
     TextField {
         id: currentTempo
-        x: 118
-        y: 389
+        x: 190
+        y: 372
         width: 64
         height: 29
         text: qsTr("120")
@@ -103,6 +103,36 @@ Item {
         anchors.bottom: swipeView.top
         anchors.left: swipeView.left
         anchors.right: swipeView.right
+    }
+
+    Switch {
+        id: switch1
+        x: 18
+        y: 281
+        width: 103
+        height: 40
+        text: qsTr("Quarter")
+        font.pointSize: 9
+    }
+
+    Switch {
+        id: switch2
+        x: 18
+        y: 323
+        width: 112
+        height: 36
+        text: qsTr("Quaver")
+        font.pointSize: 9
+    }
+
+    Switch {
+        id: switch3
+        x: 18
+        y: 365
+        width: 126
+        height: 36
+        text: qsTr("Semiquaver")
+        font.pointSize: 9
     }
 
 }
