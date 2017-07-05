@@ -7,6 +7,8 @@ Item {
     id: item1
     width: 300
     height: 450
+    property alias statusIndicator2: statusIndicator2
+    property alias statusIndicator1: statusIndicator1
     property alias slider: slider
     property alias currentTempo: currentTempo
     property alias stop: stop
@@ -17,14 +19,14 @@ Item {
 
     Button {
         id: start
-        x: 190
+        x: 207
         y: 285
         text: qsTr("START")
     }
 
     Button {
         id: stop
-        x: 190
+        x: 207
         y: 327
         width: 64
         height: 32
@@ -37,6 +39,7 @@ Item {
         y: 22
         width: 164
         height: 80
+        color: "#82a7cb"
     }
 
     SwipeView {
@@ -77,7 +80,7 @@ Item {
 
     TextField {
         id: currentTempo
-        x: 190
+        x: 207
         y: 372
         width: 64
         height: 29
@@ -106,7 +109,7 @@ Item {
     }
 
     Switch {
-        id: switch1
+        id: quarter
         x: 18
         y: 281
         width: 103
@@ -116,7 +119,7 @@ Item {
     }
 
     Switch {
-        id: switch2
+        id: quaver
         x: 18
         y: 323
         width: 112
@@ -126,13 +129,27 @@ Item {
     }
 
     Switch {
-        id: switch3
+        id: semiquaver
         x: 18
         y: 365
         width: 126
         height: 36
         text: qsTr("Semiquaver")
         font.pointSize: 9
+    }
+
+    StatusIndicator {
+        id: statusIndicator1
+        x: 18
+        y: 48
+        color: "#21a2e3"
+    }
+
+    StatusIndicator {
+        id: statusIndicator2
+        x: 243
+        y: 48
+        color: "#2875d7"
     }
 
 }

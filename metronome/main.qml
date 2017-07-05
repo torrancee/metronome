@@ -7,6 +7,11 @@ ApplicationWindow {
     width: 300
     height: 450
     title: qsTr("Metronome")
+    background: Rectangle {
+        width: 300
+        height: 450
+        color: "grey"
+    }
 
     Page1{
 

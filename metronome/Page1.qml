@@ -43,6 +43,8 @@ Page1Form {
 
         onTriggered: {
             statusIndicator.active = true
+            statusIndicator1.active = true
+            statusIndicator2.active = true
             cowbell.play()
             blinkingTimer.start()
         }
