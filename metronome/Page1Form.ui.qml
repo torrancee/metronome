@@ -7,6 +7,9 @@ Item {
     id: item1
     width: 300
     height: 450
+    property alias semiquaver: semiquaver
+    property alias quaver: quaver
+    property alias quarter: quarter
     property alias statusIndicator2: statusIndicator2
     property alias statusIndicator1: statusIndicator1
     property alias slider: slider
@@ -92,6 +95,8 @@ Item {
         id: tabBar
         y: 127
         height: 17
+        font.wordSpacing: -2
+        font.bold: true
         font.pointSize: 10
         anchors.rightMargin: 0
         anchors.bottomMargin: 6
@@ -115,6 +120,7 @@ Item {
         width: 103
         height: 40
         text: qsTr("Quarter")
+        checked: true
         font.pointSize: 9
     }
 

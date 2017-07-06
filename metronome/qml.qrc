@@ -7,5 +7,7 @@
     </qresource>
     <qresource prefix="/sound">
         <file>sounds/cowbell.wav</file>
+        <file>sounds/claves.wav</file>
+        <file>sounds/Cowbell-3.wav</file>
     </qresource>
 </RCC>

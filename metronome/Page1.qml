@@ -3,6 +3,8 @@ import QtMultimedia 5.8
 
 Page1Form {
 
+    currentTempo.readOnly: true
+
     slider.onValueChanged: {
 
         if(slider.value < 100)
@@ -14,8 +16,6 @@ Page1Form {
         mainTimer.interval = 60/dial.value*1000
 
     }
-
-    currentTempo.readOnly: true
 
     dial.onValueChanged: {
 
@@ -42,12 +42,42 @@ Page1Form {
         repeat: true
 
         onTriggered: {
-            statusIndicator.active = true
-            statusIndicator1.active = true
-            statusIndicator2.active = true
-            cowbell.play()
-            blinkingTimer.start()
+
+            if(quarter.checked == true){
+                statusIndicator.active = true
+                cowbell.play()
+                blinkingTimer.start()
+                delay.start()}
         }
+    }
+
+    Timer {
+        id: clavesTimer
+        interval: mainTimer.interval
+        triggeredOnStart: true
+        running: false
+        repeat: true
+
+        onTriggered: {
+
+            if(quaver.checked == true){
+                statusIndicator1.active = true
+                claves.play()
+                }
+        }
+    }
+
+    Timer {
+        id: delay
+        interval: mainTimer.interval/2
+        triggeredOnStart: false
+        running: false
+        repeat: false
+
+        onTriggered: {
+            clavesTimer.start()
+        }
+
     }
 
     Timer {
@@ -65,6 +95,11 @@ Page1Form {
 
     SoundEffect{
         id: cowbell
-        source: "qrc:/sound/sounds/cowbell.wav"
+        source: "qrc:/sound/sounds/Cowbell-3.wav"
+    }
+
+    SoundEffect{
+        id: claves
+        source: "qrc:/sound/sounds/claves.wav"
     }
 }
