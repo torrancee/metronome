@@ -3,7 +3,9 @@ import QtMultimedia 5.8
 
 Page1Form {
 
+    //label with current tempo set to read only state
     currentTempo.readOnly: true
+
 
     slider.onValueChanged: {
 
@@ -12,30 +14,39 @@ Page1Form {
         else
             currentTempo.text = slider.value.toPrecision(3)
 
-        dial.value = slider.value.toPrecision(3)
-        mainTimer.interval = 60/dial.value*1000
-
+            dial.value = slider.value.toPrecision(3)
     }
+
+    // set text label to current tempo
+    // slider to same value as dial
+    // interval in timers changed
+    // stop clavesTimer to sync
 
     dial.onValueChanged: {
 
         currentTempo.text = dial.value
         slider.value = dial.value
-        mainTimer.interval = 60/dial.value*1000
+
+        cowbellTimer.interval = 60/dial.value*1000
+        delay.interval = cowbellTimer.interval/2
+        clavesTimer.interval = cowbellTimer.interval
+
+            clavesTimer.stop()
     }
 
     start.onClicked: {
 
-        mainTimer.start()
+        cowbellTimer.start()
     }
 
     stop.onClicked: {
 
-        mainTimer.stop()
+        cowbellTimer.stop()
+        clavesTimer.stop()
     }
 
     Timer {
-        id: mainTimer
+        id: cowbellTimer
         interval: 1000
         triggeredOnStart: true
         running: false
@@ -53,7 +64,7 @@ Page1Form {
 
     Timer {
         id: clavesTimer
-        interval: mainTimer.interval
+        interval: cowbellTimer.interval
         triggeredOnStart: true
         running: false
         repeat: true
@@ -64,18 +75,21 @@ Page1Form {
                 statusIndicator1.active = true
                 claves.play()
                 }
+            else
+                clavesTimer.stop()
         }
     }
 
     Timer {
         id: delay
-        interval: mainTimer.interval/2
+        interval: cowbellTimer.interval/2
         triggeredOnStart: false
         running: false
         repeat: false
 
         onTriggered: {
             clavesTimer.start()
+            delay.stop()
         }
 
     }
