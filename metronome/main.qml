@@ -8,9 +8,14 @@ ApplicationWindow {
     height: 450
     title: qsTr("Metronome")
     background: Rectangle {
+        id: backgr
         width: 300
         height: 450
         color: "grey"
+    }
+
+    onWidthChanged: {
+        backgr.width = width
     }
 
     Page1{

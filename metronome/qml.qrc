@@ -5,6 +5,8 @@
         <file>Page1Form.ui.qml</file>
         <file>qtquickcontrols2.conf</file>
         <file>CowbellTimer.qml</file>
+        <file>ClavesTimer.qml</file>
+        <file>BlinkingTimer.qml</file>
     </qresource>
     <qresource prefix="/sound">
         <file>sounds/cowbell.wav</file>

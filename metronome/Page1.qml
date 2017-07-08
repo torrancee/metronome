@@ -3,12 +3,25 @@ import QtMultimedia 5.8
 
 Page1Form {
 
+    //label with current tempo set to read only state
+    currentTempo.readOnly: true
+
     CowbellTimer{
         id: cowbellTimer}
 
+    ClavesTimer{
+        id: clavesTimer}
 
-    //label with current tempo set to read only state
-    currentTempo.readOnly: true
+    start.onClicked: {
+
+        cowbellTimer.start()
+    }
+
+    stop.onClicked: {
+
+        cowbellTimer.stop()
+        clavesTimer.stop()
+    }
 
 
     slider.onValueChanged: {
@@ -38,35 +51,6 @@ Page1Form {
             clavesTimer.stop()
     }
 
-    start.onClicked: {
-
-        cowbellTimer.start()
-    }
-
-    stop.onClicked: {
-
-        cowbellTimer.stop()
-        clavesTimer.stop()
-    }
-
-    Timer {
-        id: clavesTimer
-        interval: cowbellTimer.interval
-        triggeredOnStart: true
-        running: false
-        repeat: true
-
-        onTriggered: {
-
-            if(quaver.checked == true){
-                statusIndicator1.active = true
-                claves.play()
-                }
-            else
-                clavesTimer.stop()
-        }
-    }
-
     Timer {
         id: delay
         interval: cowbellTimer.interval/2
@@ -79,19 +63,6 @@ Page1Form {
             delay.stop()
         }
 
-    }
-
-    Timer {
-
-        id: blinkingTimer
-        interval: 50
-        triggeredOnStart: false
-        running: false
-
-        onTriggered:{
-            statusIndicator.active = false
-            blinkingTimer.stop()
-        }
     }
 
     SoundEffect{

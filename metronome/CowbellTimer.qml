@@ -8,6 +8,10 @@ Timer {
     running: false
     repeat: true
 
+//    BlinkingTimer {
+//        id: cowbellBlinking
+//    }
+
     onTriggered: {
 
         if(quarter.checked == true){
@@ -18,5 +22,7 @@ Timer {
     }
 
 }
+
+
 
 
