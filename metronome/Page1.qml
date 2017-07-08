@@ -3,6 +3,10 @@ import QtMultimedia 5.8
 
 Page1Form {
 
+    CowbellTimer{
+        id: cowbellTimer}
+
+
     //label with current tempo set to read only state
     currentTempo.readOnly: true
 
@@ -43,23 +47,6 @@ Page1Form {
 
         cowbellTimer.stop()
         clavesTimer.stop()
-    }
-
-    Timer {
-        id: cowbellTimer
-        interval: 1000
-        triggeredOnStart: true
-        running: false
-        repeat: true
-
-        onTriggered: {
-
-            if(quarter.checked == true){
-                statusIndicator.active = true
-                cowbell.play()
-                blinkingTimer.start()
-                delay.start()}
-        }
     }
 
     Timer {
@@ -108,12 +95,12 @@ Page1Form {
     }
 
     SoundEffect{
-        id: cowbell
-        source: "qrc:/sound/sounds/Cowbell-3.wav"
+        id: claves
+        source: "qrc:/sound/sounds/claves.wav"
     }
 
     SoundEffect{
-        id: claves
-        source: "qrc:/sound/sounds/claves.wav"
+        id: cowbell
+        source: "qrc:/sound/sounds/Cowbell-3.wav"
     }
 }
