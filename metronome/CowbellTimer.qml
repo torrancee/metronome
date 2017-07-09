@@ -8,16 +8,16 @@ Timer {
     running: false
     repeat: true
 
-//    BlinkingTimer {
-//        id: cowbellBlinking
-//    }
+    property BlinkingTimer t2: BlinkingTimer {
+        id: cowbellBlinking
+    }
 
     onTriggered: {
 
         if(quarter.checked == true){
             statusIndicator.active = true
             cowbell.play()
-            blinkingTimer.start()
+            cowbellBlinking.start()
             delay.start()}
     }
 

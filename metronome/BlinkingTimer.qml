@@ -1,8 +1,5 @@
 import QtQuick 2.0
-Item{
-    id: dupa
 
-    property alias blinkinTimer: blinkingTimer
 Timer {
 
     id: blinkingTimer
@@ -15,4 +12,4 @@ Timer {
             blinkingTimer.stop()
     }
 }
-}
+
