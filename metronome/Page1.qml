@@ -45,24 +45,10 @@ Page1Form {
         slider.value = dial.value
 
         cowbellTimer.interval = 60/dial.value*1000
-        delay.interval = cowbellTimer.interval/2
+        cowbellTimer.delay.interval = cowbellTimer.interval/2
         clavesTimer.interval = cowbellTimer.interval
 
             clavesTimer.stop()
-    }
-
-    Timer {
-        id: delay
-        interval: cowbellTimer.interval/2
-        triggeredOnStart: false
-        running: false
-        repeat: false
-
-        onTriggered: {
-            clavesTimer.start()
-            delay.stop()
-        }
-
     }
 
     SoundEffect{

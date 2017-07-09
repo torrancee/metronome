@@ -2,6 +2,7 @@ import QtQuick 2.7
 import QtQuick.Controls 2.0
 import QtQuick.Controls.Universal 2.0
 import QtQuick.Extras 1.4
+import Qt.labs.calendar 1.0
 
 Item {
     id: item1
