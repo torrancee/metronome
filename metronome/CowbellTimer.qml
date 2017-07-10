@@ -18,13 +18,20 @@ Timer {
     }
 
     property Delay delay: Delay {
-        //id: delay
         interval: cowbellTimer.interval/2
-
 
         onTriggered: {
             clavesTimer.start()
             delay.stop()
+         }
+    }
+
+    property Delay delay2: Delay {
+        interval: cowbellTimer.interval/4
+
+        onTriggered: {
+            clavesTimer2.start()
+            delay2.stop()
          }
     }
 
@@ -34,7 +41,8 @@ Timer {
             statusIndicator.active = true
             cowbell.play()
             blink.start()
-            delay.start()}
+            delay.start()
+            delay2.start()}
     }
 
 }

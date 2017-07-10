@@ -12,6 +12,10 @@ Page1Form {
     ClavesTimer{
         id: clavesTimer}
 
+    Claves2Timer {
+        id: clavesTimer2
+    }
+
     start.onClicked: {
 
         cowbellTimer.start()

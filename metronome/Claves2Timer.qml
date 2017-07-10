@@ -2,7 +2,7 @@ import QtQuick 2.0
 
 Timer {
 
-    interval: cowbellTimer.interval
+    interval: cowbellTimer.interval/2
     triggeredOnStart: true
     running: false
     repeat: true
@@ -10,17 +10,16 @@ Timer {
     property BlinkingTimer blink: BlinkingTimer{
 
         onTriggered: {
-            statusIndicator1.active = false
+            statusIndicator2.active = false
             blink.stop()
         }
     }
 
     onTriggered: {
 
-        if(quaver.checked == true){
-            statusIndicator1.active = true
+        if(semiquaver.checked == true){
+            statusIndicator2.active = true
             blink.start()
             claves.play()}
     }
 }
-
