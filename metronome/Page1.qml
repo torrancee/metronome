@@ -12,9 +12,9 @@ Page1Form {
     ClavesTimer{
         id: clavesTimer}
 
-    Claves2Timer {
-        id: clavesTimer2
-    }
+//    Claves2Timer {
+//        id: clavesTimer2
+//    }
 
     start.onClicked: {
 
@@ -25,6 +25,7 @@ Page1Form {
 
         cowbellTimer.stop()
         clavesTimer.stop()
+//        clavesTimer2.stop()
     }
 
 
@@ -45,20 +46,34 @@ Page1Form {
 
     dial.onValueChanged: {
 
+        clavesTimer.stop()
+        //clavesTimer2.stop()
+
         currentTempo.text = dial.value
         slider.value = dial.value
 
         cowbellTimer.interval = 60/dial.value*1000
-        cowbellTimer.delay.interval = cowbellTimer.interval/2
-        clavesTimer.interval = cowbellTimer.interval
 
-            clavesTimer.stop()
+        cowbellTimer.delay.interval = cowbellTimer.interval/2
+        //cowbellTimer.delay2.interval = cowbellTimer.interval/4
+
+        clavesTimer.interval = cowbellTimer.interval
+        //clavesTimer2.interval = cowbellTimer.interval/2
+
+//        cowbellTimer.stop()
+
+
     }
 
     SoundEffect{
         id: claves
         source: "qrc:/sound/sounds/claves.wav"
     }
+
+//    SoundEffect{
+//        id: claves2
+//        source: "qrc:/sound/sounds/claves.wav"
+//    }
 
     SoundEffect{
         id: cowbell

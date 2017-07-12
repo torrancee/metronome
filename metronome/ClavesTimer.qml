@@ -7,11 +7,11 @@ Timer {
     running: false
     repeat: true
 
-    property BlinkingTimer blink: BlinkingTimer{
+    property BlinkingTimer blink1: BlinkingTimer{
 
         onTriggered: {
             statusIndicator1.active = false
-            blink.stop()
+            blink1.stop()
         }
     }
 
@@ -19,8 +19,12 @@ Timer {
 
         if(quaver.checked == true){
             statusIndicator1.active = true
-            blink.start()
+            blink1.start()
             claves.play()}
+//        else{
+//            claves.stop()
+//            blink.stop()
+//        }
     }
 }
 

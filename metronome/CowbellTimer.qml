@@ -26,14 +26,14 @@ Timer {
          }
     }
 
-    property Delay delay2: Delay {
-        interval: cowbellTimer.interval/4
+//    property Delay delay2: Delay {
+//        interval: cowbellTimer.interval/4
 
-        onTriggered: {
-            clavesTimer2.start()
-            delay2.stop()
-         }
-    }
+//        onTriggered: {
+//            clavesTimer2.start()
+//            delay2.stop()
+//         }
+//    }
 
     onTriggered: {
 
@@ -42,7 +42,8 @@ Timer {
             cowbell.play()
             blink.start()
             delay.start()
-            delay2.start()}
+            //delay2.start()
+        }
     }
 
 }
