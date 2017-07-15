@@ -3,7 +3,6 @@ import QtMultimedia 5.8
 
 Timer {
 
-    id: cowbellTimer
     interval: 1000
     triggeredOnStart: true
     running: false
@@ -22,18 +21,9 @@ Timer {
 
         onTriggered: {
             clavesTimer.start()
-            delay.stop()
+            //delay.stop()
          }
     }
-
-//    property Delay delay2: Delay {
-//        interval: cowbellTimer.interval/4
-
-//        onTriggered: {
-//            clavesTimer2.start()
-//            delay2.stop()
-//         }
-//    }
 
     onTriggered: {
 
@@ -42,7 +32,6 @@ Timer {
             cowbell.play()
             blink.start()
             delay.start()
-            //delay2.start()
         }
     }
 

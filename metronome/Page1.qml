@@ -12,10 +12,6 @@ Page1Form {
     ClavesTimer{
         id: clavesTimer}
 
-//    Claves2Timer {
-//        id: clavesTimer2
-//    }
-
     start.onClicked: {
 
         cowbellTimer.start()
@@ -46,7 +42,7 @@ Page1Form {
 
     dial.onValueChanged: {
 
-        clavesTimer.stop()
+        //clavesTimer.stop()
         //clavesTimer2.stop()
 
         currentTempo.text = dial.value
@@ -60,7 +56,8 @@ Page1Form {
         clavesTimer.interval = cowbellTimer.interval
         //clavesTimer2.interval = cowbellTimer.interval/2
 
-//        cowbellTimer.stop()
+        //cowbellTimer.stop()
+        claves.stop()
 
 
     }

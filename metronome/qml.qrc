@@ -8,7 +8,6 @@
         <file>ClavesTimer.qml</file>
         <file>BlinkingTimer.qml</file>
         <file>Delay.qml</file>
-        <file>Claves2Timer.qml</file>
     </qresource>
     <qresource prefix="/sound">
         <file>sounds/cowbell.wav</file>
